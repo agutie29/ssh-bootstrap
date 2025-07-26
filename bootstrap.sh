@@ -2,7 +2,7 @@
 
 # === CONFIGURATION ===
 TARGET_USER="root"
-KEYS_URL="https://raw.githubusercontent.com/YOUR_USERNAME/ssh-bootstrap/master/authorized_keys"
+KEYS_URL="https://raw.githubusercontent.com/agutie29/ssh-bootstrap/master/authorized_keys"
 
 SSH_DIR="/home/$TARGET_USER/.ssh"
 [ "$TARGET_USER" = "root" ] && SSH_DIR="/root/.ssh"
