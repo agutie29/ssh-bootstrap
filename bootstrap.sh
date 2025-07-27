@@ -2,7 +2,7 @@
 
 # === CONFIGURATION ===
 TARGET_USER="root"
-KEYS_URL="https://raw.githubusercontent.com/YOUR_USERNAME/ssh-bootstrap/master/authorized_keys"
+KEYS_URL="https://raw.githubusercontent.com/agutie29/ssh-bootstrap/master/authorized_keys"
 BASTION_IP="192.168.9.14"
 BASTION_WEBHOOK_PORT="5000"
 
