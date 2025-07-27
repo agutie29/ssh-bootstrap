@@ -2,7 +2,9 @@
 
 # === CONFIGURATION ===
 TARGET_USER="root"
-KEYS_URL="https://raw.githubusercontent.com/agutie29/ssh-bootstrap/master/authorized_keys"
+KEYS_URL="https://raw.githubusercontent.com/YOUR_USERNAME/ssh-bootstrap/master/authorized_keys"
+BASTION_IP="192.168.9.14"
+BASTION_WEBHOOK_PORT="5000"
 
 SSH_DIR="/home/$TARGET_USER/.ssh"
 [ "$TARGET_USER" = "root" ] && SSH_DIR="/root/.ssh"
@@ -60,4 +62,12 @@ sed -i 's/^#*\s*PermitRootLogin.*/PermitRootLogin prohibit-password/' /etc/ssh/s
 echo "[+] Restarting SSH service..."
 systemctl restart sshd 2>/dev/null || service ssh restart
 
-echo "[✓] SSH bootstrap complete. Public key auth enabled. Password login disabled."
+# === STEP 6: Trigger Bastion Phase 2 ===
+MY_IP=$(hostname -I | awk '{print $1}')
+echo "[+] Notifying bastion to continue setup for IP: $MY_IP..."
+
+curl -X POST "http://$BASTION_IP:$BASTION_WEBHOOK_PORT/deploy" \
+     -H "Content-Type: application/json" \
+     -d "{\"ip\": \"$MY_IP\"}"
+
+echo "[✓] SSH bootstrap complete. Bastion will now continue configuration."
