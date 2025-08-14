@@ -1,2 +1,3 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHWusYV1s4U60VSdf4vcyvJRgxMTT+61/uezOlhr7bTW # ========== Bastion Access Key ==========
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBfx4KTtoEUAXdF572B7M1a1xXgEYMF20A++29vsjsni # ============= Skeleton Key =============
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5FtnMiCFh9n+2b29hZp/Nqj3iZwjfWOHRJSBxhcXbg # ============ DC Service Key ============
